@@ -16,7 +16,7 @@ body{
 
 #ball-area{
     background-color: grey;
-    width: 50%;
+    width: 80%;
     cursor: pointer;
 }
 
@@ -24,4 +24,15 @@ body{
     color: antiquewhite;
     position: absolute;
     font-size: 50px;
+    animation-duration: 2000ms;
+}
+
+#instruction{
+    width: 20%;
+    text-align: left;
+    padding: 40px;
+}
+
+ol > li{
+    padding-top: 10px;
 }
