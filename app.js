@@ -1,6 +1,11 @@
 //Access ball and its container
 const ballArea = document.getElementById('ball-area');
 const ball = document.getElementById('ball');
+const goalPost = document.getElementById('post');
+const displayGoal = document.getElementById('goal');
+
+let count = 0;
+displayGoal.innerText =`You scores: ${count}`;
 
 //Add click event to move the ball
 ballArea.addEventListener('click', (event)=>{
@@ -10,7 +15,7 @@ ballArea.addEventListener('click', (event)=>{
 
     //Add animation style
     const styling = [
-        { transform:`translate(${x-35}px,${y-35}px)`}
+        { transform:`translate(${x-20}px,${y-75}px)`}
     ];
     
     //Add animation duration
@@ -20,6 +25,19 @@ ballArea.addEventListener('click', (event)=>{
     
     //Apply animation to the ball to move to clicked point
     ball.animate(styling, timing).onfinish=()=>{
-        ball.style.transform = `translate(${x-35}px,${y-35}px)`;
-    };
+        ball.style.transform = `translate(${x-20}px,${y-75}px)`;
+    }; 
+
+    const postArea = goalPost.getBoundingClientRect();
+
+    if(
+        x >= postArea.left &&
+        x <= postArea.right &&
+        y >= postArea.top &&
+        y <= postArea.bottom
+    ){
+        count++;
+        displayGoal.innerText =`You scores: ${count}`;        
+    }
 })
+
